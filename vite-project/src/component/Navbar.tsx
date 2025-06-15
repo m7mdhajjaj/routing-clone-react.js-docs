@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -7,19 +7,24 @@ const Navbar = () => {
           <div className="text-white text-lg font-bold">My App</div>
           <ul className="flex space-x-4">
             <li>
-              <Link to="/" className="text-white hover:text-gray-400">
+              <NavLink to="/" className="text-white hover:text-gray-400">
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/about" className="text-white hover:text-gray-400">
+              <NavLink to="/about" className="text-white hover:text-gray-400">
                 About
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/contact" className="text-white hover:text-gray-400">
+              <NavLink to="/contact" className="text-white hover:text-gray-400">
                 Contact
-              </Link>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/learn" className="text-white hover:text-gray-400">
+                learn
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -30,3 +35,4 @@ export default Navbar;
 
 
 //we use link because it support single page application // and it will not reload the page when we click on the link
+// NavLink is used to apply active styles to the link when the route matches, making it easier to highlight the current page in the navigation bar.

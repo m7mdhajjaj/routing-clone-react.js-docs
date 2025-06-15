@@ -5,6 +5,11 @@ import HomePage from "../src/pages";
 import ContactPage from "../src/pages/contact";
 import AboutPage from "../src/pages/about";
 import RootLayout from "../src/pages/rootlayout";
+import  QuickStart from "../src/pages/learn/index";
+import LearnLayout from "../src/pages/learn/Layout"; // Assuming you have a LearnLayout component
+import Routing from "../src/pages/learn/routing";
+import Components from "../src/pages/learn/Components";
+import StateManagement from "../src/pages/learn/state-management";
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -14,6 +19,17 @@ const Router = createBrowserRouter(
         <Route index element={<HomePage/>} />
         <Route path="about" element={<AboutPage/>} />
         <Route path="contact" element={<ContactPage/>} />
+      </Route>
+
+      
+      {/* learn layout */}
+      <Route path="/learn" element={<LearnLayout />}>
+
+        <Route index element={<QuickStart />} />
+        <Route path="routing" element={<Routing />} />
+        <Route path="components" element={<Components />} />
+        <Route path="state-management" element={<StateManagement />} />
+
       </Route>
     </>
   )
