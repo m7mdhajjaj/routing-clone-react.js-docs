@@ -26,6 +26,18 @@ const Navbar = () => {
                 learn
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/contribute"
+                className="text-white hover:text-gray-400">
+                contribute
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/login" className="text-white hover:text-gray-400">
+                login
+              </NavLink>
+            </li>
           </ul>
         </div>
       </nav>
