@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 const LoginPage = () => {
   const location = useLocation();
   console.log(location);
-
+  
   return (
     <div>
       <h2 className="text-center mb-3">Login to Contribute</h2>

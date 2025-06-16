@@ -12,9 +12,12 @@ import Components from "../src/pages/learn/Components";
 import StateManagement from "../src/pages/learn/state-management";
 import Login from "../src/pages/Login";
 import Contribute from "../src/pages/Contribute";
+import ProtectedRouute from "../src/component/auth/ProtectedRouute";
 
-const isactive = false; // This variable is not used in the current code, but you can use it to conditionally render components or styles if needed.
-
+const isactive = true; // This variable is not used in the current code, but you can use it to conditionally render components or styles if needed.
+const useData: { email: string } | null = isactive
+  ? { email: "mohdhajaj@gmail.com" }
+  : null; // This is a placeholder for user data, which can be used to pass information to the ProtectedRoute component or other components as needed.
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -30,11 +33,22 @@ const Router = createBrowserRouter(
         <Route path="contact" element={<ContactPage />} />
         <Route
           path="login"
-          element={!isactive ? <Login /> : <Navigate to={"/Contribute"} />}
+          element={
+            <ProtectedRouute
+              isallowed={!isactive}
+              url="/contribute"
+              data={useData}>
+              <Login />
+            </ProtectedRouute>
+          }
         />
         <Route
           path="contribute"
-          element={isactive ? <Contribute /> : <Navigate to={"/Login"} />}
+          element={
+            <ProtectedRouute isallowed={isactive} url="/login" data={useData}>
+              <Contribute />
+            </ProtectedRouute>
+          }
         />
       </Route>
 
